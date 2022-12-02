@@ -3,9 +3,7 @@ using GameOverlay.Windows;
 using SRTPluginBase;
 using SRTExampleProvider64;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Dynamic;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -26,20 +24,8 @@ namespace SRTPluginUIExampleDXOverlay
 
         private Font _consolasBold;
 
-        private SolidBrush _black;
         private SolidBrush _white;
-        private SolidBrush _grey;
-        private SolidBrush _darkred;
         private SolidBrush _red;
-        private SolidBrush _lightred;
-        private SolidBrush _lightyellow;
-        private SolidBrush _lightgreen;
-        private SolidBrush _lawngreen;
-        private SolidBrush _goldenrod;
-        private SolidBrush _greydark;
-        private SolidBrush _greydarker;
-        private SolidBrush _darkgreen;
-        private SolidBrush _darkyellow;
 
 
         public PluginConfiguration config;
@@ -85,20 +71,8 @@ namespace SRTPluginUIExampleDXOverlay
 
             _consolasBold = _graphics?.CreateFont(config.StringFontName, 12, true);
 
-            _black = _graphics?.CreateSolidBrush(0, 0, 0);
             _white = _graphics?.CreateSolidBrush(255, 255, 255);
-            _grey = _graphics?.CreateSolidBrush(128, 128, 128);
-            _greydark = _graphics?.CreateSolidBrush(64, 64, 64);
-            _greydarker = _graphics?.CreateSolidBrush(24, 24, 24);
-            _darkred = _graphics?.CreateSolidBrush(153, 0, 0, 100);
-            _darkgreen = _graphics?.CreateSolidBrush(0, 102, 0, 100);
-            _darkyellow = _graphics?.CreateSolidBrush(218, 165, 32, 100);
             _red = _graphics?.CreateSolidBrush(255, 0, 0);
-            _lightred = _graphics?.CreateSolidBrush(255, 183, 183);
-            _lightyellow = _graphics?.CreateSolidBrush(255, 255, 0);
-            _lightgreen = _graphics?.CreateSolidBrush(0, 255, 0);
-            _lawngreen = _graphics?.CreateSolidBrush(124, 252, 0);
-            _goldenrod = _graphics?.CreateSolidBrush(218, 165, 32);
 
             return 0;
         }
@@ -107,20 +81,8 @@ namespace SRTPluginUIExampleDXOverlay
         {
             SaveConfiguration(config);
 
-            _black?.Dispose();
             _white?.Dispose();
-            _grey?.Dispose();
-            _greydark?.Dispose();
-            _greydarker?.Dispose();
-            _darkred?.Dispose();
-            _darkgreen?.Dispose();
-            _darkyellow?.Dispose();
             _red?.Dispose();
-            _lightred?.Dispose();
-            _lightyellow?.Dispose();
-            _lightgreen?.Dispose();
-            _lawngreen?.Dispose();
-            _goldenrod?.Dispose();
 
             _consolasBold?.Dispose();
 
@@ -138,7 +100,7 @@ namespace SRTPluginUIExampleDXOverlay
 
         public int ReceiveData(object gameMemory)
         {
-            this.gameMemory = (GameMemoryExample)gameMemory;
+            this.gameMemory = (IGameMemoryExample)gameMemory;
             _window?.PlaceAbove(gameWindowHandle);
             _window?.FitTo(gameWindowHandle, true);
 
@@ -173,20 +135,9 @@ namespace SRTPluginUIExampleDXOverlay
 
         private void DrawOverlay()
         {
-            float baseXOffset = config.PositionX;
-            float baseYOffset = config.PositionY;
-
-            // Player HP
-            float statsXOffset = baseXOffset + 5f;
-            float statsYOffset = baseYOffset + 0f;
-
-            float textOffsetX = config.PositionX + 15f;
-
-            // DA Stats
-            // _graphics?.DrawText(_consolasBold, 20f, _grey, config.PositionX + 15f, statsYOffset += 24, config.MoneyString);
-            // textOffsetX = config.PositionX + 15f + GetStringSize(config.MoneyString) + 10f;
-            // _graphics?.DrawText(_consolasBold, 20f, _lawngreen, textOffsetX, statsYOffset, gameMemory.Money.ToString()); //110f
-            DrawTextBlock(ref textOffsetX, ref statsYOffset, config.MoneyString, gameMemory.Money.ToString(), _white);
+            float offsetX = config.PositionX + 15f;
+            float offsetY = config.PositionY + 0f;
+            DrawTextBlock(ref offsetX, ref offsetY, config.MoneyString, gameMemory.Money.ToString(), _white);
         }
 
 
