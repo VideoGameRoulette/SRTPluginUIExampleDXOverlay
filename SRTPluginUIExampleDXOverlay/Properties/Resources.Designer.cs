@@ -19,7 +19,7 @@ namespace SRTPluginUIExampleDXOverlay.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace SRTPluginUIExampleDXOverlay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _40d_texout {
+        internal static byte[] Kudos {
             get {
-                object obj = ResourceManager.GetObject("_40d_texout", resourceCulture);
+                object obj = ResourceManager.GetObject("Kudos", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,9 +73,39 @@ namespace SRTPluginUIExampleDXOverlay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ui0100_iam_texout {
+        internal static byte[] LIberty {
             get {
-                object obj = ResourceManager.GetObject("ui0100_iam_texout", resourceCulture);
+                object obj = ResourceManager.GetObject("LIberty", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Money {
+            get {
+                object obj = ResourceManager.GetObject("Money", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Morality {
+            get {
+                object obj = ResourceManager.GetObject("Morality", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Utility {
+            get {
+                object obj = ResourceManager.GetObject("Utility", resourceCulture);
                 return ((byte[])(obj));
             }
         }
